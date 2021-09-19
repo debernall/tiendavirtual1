@@ -187,8 +187,8 @@ table.Usuarios {
    				 <td><input class="regitro1" type="text" placeholder="Ingresa el usuario" name="uname" required></td>
 			</tr>
 			<tr>
-				<td><label class="regitro1" for="passt"><b>Contrase�a</b></label></td>
-				<td><input class="regitro1" type="password" placeholder="Ingresa la contrase�a" name="passt" required></td>
+				<td><label class="regitro1" for="passt"><b>Contraseña</b></label></td>
+				<td><input class="regitro1" type="password" placeholder="Ingresa la contraseña" name="passt" required></td>
 			</tr>
 
 		</table>
@@ -223,7 +223,7 @@ table.Usuarios {
     <h3>Usuarios</h3>
 			<table class="Usuarios">
 				<tr>
-					<td><label>C�dula:</label></td>
+					<td><label>Cédula:</label></td>
 					<td><input type="text" name="cedula"></td>
 					<td><label>Usuario:</label></td>
 					<td><input type="text" name="usuario"></td>
@@ -231,11 +231,11 @@ table.Usuarios {
 				<tr>
 					<td><label>Nombre Completo:</label></td><br>
 					<td><input type="text" name="nombre_completo"></td>
-					<td><label>Contrase�a:</label></td>
-					<td><input type="text" name="contrase�a"></td><br>
+					<td><label>Contraseña:</label></td>
+					<td><input type="text" name="contraseña"></td><br>
 				</tr>	
 				<tr>
-					<td><label>Correo Elect�nico:</label></td>
+					<td><label>Correo Electónico:</label></td>
 					<td><input type="text" name="email"></td>
 				</tr>
 			</table>
@@ -268,11 +268,99 @@ table.Usuarios {
     </section>
     <section  id="interaccion-2" class="oculto info-2"> 
      <h3>Clientes</h3>
-	<!-- contenido Clientes -->
+			<table class="Clientes">
+				<tr>
+					<td><label>Cédula:</label></td>
+					<td><input type="text" name="cedula"></td>
+					<td><label>Teléfono:</label></td>
+					<td><input type="text" name="telefono"></td>
+				</tr>	
+				<tr>
+					<td><label>Nombre Completo:</label></td><br>
+					<td><input type="text" name="nombre_completo"></td>
+					<td><label>Correo Electrónico:</label></td>
+					<td><input type="text" name="email"></td><br>
+				</tr>	
+				<tr>
+					<td><label>Dirección:</label></td>
+					<td><input type="text" name="direccion"></td>
+				</tr>
+			</table>
+			<br>
+		<script type="text/javascript">
+		function mostrar(name){
+			closeAll();
+			let el = document.getElementById(name);
+			el.style.height = 'auto';
+			irA(name);
+		}
+		function closeAll(){
+			let info = document.getElementsByClassName('oculto');
+			for(i = 0; i < info.length; i++){
+				info[i].style.height = '0';
+			} 
+		}
+		function irA(name){
+			let el = document.getElementById(name);
+			window.smoothScroll(el, 1000);
+		}
+		</script>
+		</form> 
+			<div class="botones">
+					<button name="Consultar" type="button">Consulta</button>
+					<button name="Crear" type="button">Crear</button>
+					<button name="Actualizar" type="button">Actualizar</button>
+					<button name="Borrar" type="button">Borrar</button>
+			</div>
+    </section>
     </section>
     <section  id="interaccion-3" class="oculto info-3"> 
      <h3>Proveedores</h3>
-	<!-- contenido Proveedores -->
+			<table class="proveedores">
+				<tr>
+					<td><label>NIT:</label></td>
+					<td><input type="text" name="nit"></td>
+					<td><label>Teléfono:</label></td>
+					<td><input type="text" name="telefono"></td>
+				</tr>	
+				<tr>
+					<td><label>Nombre Proveedor:</label></td><br>
+					<td><input type="text" name="nombre_proveedor"></td>
+					<td><label>Ciudad:</label></td>
+					<td><input type="text" name="ciudad"></td><br>
+				</tr>	
+				<tr>
+					<td><label>Dirección:</label></td>
+					<td><input type="text" name="direccion"></td>
+				</tr>
+			</table>
+			<br>
+		<script type="text/javascript">
+		function mostrar(name){
+			closeAll();
+			let el = document.getElementById(name);
+			el.style.height = 'auto';
+			irA(name);
+		}
+		function closeAll(){
+			let info = document.getElementsByClassName('oculto');
+			for(i = 0; i < info.length; i++){
+				info[i].style.height = '0';
+			} 
+		}
+		function irA(name){
+			let el = document.getElementById(name);
+			window.smoothScroll(el, 1000);
+		}
+		</script>
+		</form> 
+			<div class="botones">
+					<button name="Consultar" type="button">Consulta</button>
+					<button name="Crear" type="button">Crear</button>
+					<button name="Actualizar" type="button">Actualizar</button>
+					<button name="Borrar" type="button">Borrar</button>
+			</div>
+    </section>
     </section>
     <section  id="interaccion-4" class="oculto info-4"> 
      <h3>Productos</h3>
