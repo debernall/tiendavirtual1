@@ -21,7 +21,7 @@ import co.edu.unbosque.tiendavirtual1.model.Clientes;
 
 public class ClientesAPI {
 	
-	@Autowired //inyecta la dependencia de todos los mÃ©todos del JPA para ClientesDAO
+	@Autowired //inyecta la dependencia de todos los mÃƒÂ©todos del JPA para ClientesDAO
 	private ClientesDAO clientesDAO;
 	
 	@PostMapping("/guardar")//Request convierte en un objeto Java desde un JSon

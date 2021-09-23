@@ -1,5 +1,6 @@
 package co.edu.unbosque.tiendavirtual1.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,6 +12,8 @@ public class Usuarios {
 	private String email_usuario;
 	private String usuario;
 	private String password;
+	
+	
 	public long getCedula_usuario() {
 		return cedula_usuario;
 	}
@@ -41,6 +44,5 @@ public class Usuarios {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }
