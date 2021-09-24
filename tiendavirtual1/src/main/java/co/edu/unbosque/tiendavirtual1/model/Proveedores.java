@@ -28,7 +28,7 @@ public class Proveedores {
 	public String getCiudad() {
 		return ciudad;
 	}
-	public void setEmail_cliente(String ciudad) {
+	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 	public String getDireccion_proveedor() {
