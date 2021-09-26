@@ -5,6 +5,7 @@
 <head>
 <link rel="stylesheet" type="texto/css" href="style.css">
 <meta charset="ISO-8859-1">
+<meta charset="UTF-8"/>
 <title>Pagina de ejemplo</title>
 <style type="text/css">
 		body {
@@ -258,7 +259,6 @@ table.Usuarios {
 			window.smoothScroll(el, 1000);
 		}
 		</script>
-		</form> 
 			<div class="botones">
 					<button name="Consultar" type="button">Consulta</button>
 					<button name="Crear" type="button">Crear</button>
@@ -304,8 +304,7 @@ table.Usuarios {
 			let el = document.getElementById(name);
 			window.smoothScroll(el, 1000);
 		}
-		</script>
-		</form> 
+		</script> 
 			<div class="botones">
 					<button name="Consultar" type="button">Consulta</button>
 					<button name="Crear" type="button">Crear</button>
@@ -361,10 +360,35 @@ table.Usuarios {
 					<button name="Borrar" type="button">Borrar</button>
 			</div>
     </section>
-    </section>
     <section  id="interaccion-4" class="oculto info-4"> 
      <h3>Productos</h3>
-	<!-- contenido Productos -->
+			<table class="productos">
+				<tr>
+					<td><label>Nombre del archivo:</label></td>
+					<td><input type="file" name="archioProduct"></td>
+					<td><label></label></td>
+					<td><input type="submit" value="Enviar datos"></td>
+				</tr>	
+			</table>
+			<br>
+		<script type="text/javascript">
+		function mostrar(name){
+			closeAll();
+			let el = document.getElementById(name);
+			el.style.height = 'auto';
+			irA(name);
+		}
+		function closeAll(){
+			let info = document.getElementsByClassName('oculto');
+			for(i = 0; i < info.length; i++){
+				info[i].style.height = '0';
+			} 
+		}
+		function irA(name){
+			let el = document.getElementById(name);
+			window.smoothScroll(el, 1000);
+		}
+		</script>
     </section>
     <section  id="interaccion-5" class="oculto info-5"> 
      <h3>Ventas</h3>
