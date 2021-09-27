@@ -49,10 +49,10 @@ public class TestJSONusuarios {
 			JSONObject innerObj = (JSONObject) i.next();
 			Usuarios usuario= new Usuarios();
 			usuario.setCedula_usuario((long) innerObj.get("cedula_usuario"));
-			usuario.setEmail_usuario(innerObj.get("email_usuario").toString());
 			usuario.setNombre_usuario(innerObj.get("nombre_usuario").toString());
-			usuario.setPassword(innerObj.get("password").toString());
+			usuario.setEmail_usuario(innerObj.get("email_usuario").toString());
 			usuario.setUsuario(innerObj.get("usuario").toString());
+			usuario.setPassword(innerObj.get("password").toString());
 			lista.add(usuario);
 		}
 		
@@ -75,10 +75,10 @@ public class TestJSONusuarios {
 		http.setRequestProperty("Content-Type", "application/json");
 		String data = "{"
 				+"\"cedula_usuario\":\""+ usuario.getCedula_usuario()
-				+"\"email_usuario\":\""+ usuario.getEmail_usuario()
 				+"\"nombre_usuario\":\""+ usuario.getNombre_usuario()
-				+"\"password\":\""+ usuario.getPassword()
+				+"\"email_usuario\":\""+ usuario.getEmail_usuario()
 				+"\"usuario\":\""+ usuario.getUsuario()
+				+"\"password\":\""+ usuario.getPassword()
 				+"\"}";
 		byte[] out = data.getBytes(StandardCharsets.UTF_8);
 		OutputStream stream = http.getOutputStream();
