@@ -77,12 +77,13 @@ public class TestJSONusuarios {
 		http.setRequestProperty("Accept", "application/json");
 		http.setRequestProperty("Content-Type", "application/json");
 		String data = "{"
-				+"\"cedula_usuario\":\""+ usuario.getCedula_usuario()
-				+"\"nombre_usuario\":\""+ usuario.getNombre_usuario()
-				+"\"email_usuario\":\""+ usuario.getEmail_usuario()
-				+"\"usuario\":\""+ usuario.getUsuario()
-				+"\"password\":\""+ usuario.getPassword()
+				+"\"cedula_usuario\":"+ usuario.getCedula_usuario()
+				+", \"nombre_usuario\":\""+ usuario.getNombre_usuario()
+				+"\" , \"email_usuario\":\""+ usuario.getEmail_usuario()
+				+"\" , \"usuario\":\""+ usuario.getUsuario()
+				+"\" , \"password\":\""+ usuario.getPassword()
 				+"\"}";
+		System.out.println(data);
 		byte[] out = data.getBytes(StandardCharsets.UTF_8);
 		OutputStream stream = http.getOutputStream();
 		stream.write(out);

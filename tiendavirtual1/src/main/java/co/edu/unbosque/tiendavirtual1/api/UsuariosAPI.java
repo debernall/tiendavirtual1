@@ -24,14 +24,13 @@ public class UsuariosAPI {
 	@Autowired //inyecta la dependencia de todos los mÃ©todos del JPA para usuarioDAO
 	private UsuariosDAO usuariosDAO;
 	
-	@PostMapping("/guardar")//Request convierte en un objeto Java desde un JSon
+	@PostMapping(path="/guardar")//Request convierte en un objeto Java desde un JSon
 	public void guardar(@RequestBody Usuarios usuarios) {
 		usuariosDAO.save(usuarios);
 	}
 
 	@GetMapping(path="/listar")
-	public @ResponseBody Iterable<Usuarios> 
-	listar(){
+	public @ResponseBody Iterable<Usuarios> listar(){
 		return (List<Usuarios>) usuariosDAO.findAll();
 	}
 
