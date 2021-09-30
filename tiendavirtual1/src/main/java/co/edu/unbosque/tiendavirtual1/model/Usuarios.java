@@ -1,11 +1,15 @@
 package co.edu.unbosque.tiendavirtual1.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Usuarios {
+@Table(name = "usuarios")
+public class Usuarios implements Serializable {
 	@Id
 	private long cedula_usuario;
 	private String nombre_usuario;
@@ -13,7 +17,23 @@ public class Usuarios {
 	private String usuario;
 	private String password;
 	
+	public Usuarios() {
+		super();
+	}
 	
+	
+	
+	public Usuarios(long cedula_usuario, String nombre_usuario, String email_usuario, String usuario, String password) {
+		super();
+		this.cedula_usuario = cedula_usuario;
+		this.nombre_usuario = nombre_usuario;
+		this.email_usuario = email_usuario;
+		this.usuario = usuario;
+		this.password = password;
+	}
+
+
+
 	public long getCedula_usuario() {
 		return cedula_usuario;
 	}

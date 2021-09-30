@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.tiendavirtual1.dao.UsuariosDAO;
@@ -17,7 +18,7 @@ import co.edu.unbosque.tiendavirtual1.model.Usuarios;
 
 
 @RestController //esta es una clase REST
-@RequestMapping("usuarios")
+@RequestMapping(path="/usuarios")
 public class UsuariosAPI {
 	
 	@Autowired //inyecta la dependencia de todos los mÃ©todos del JPA para usuarioDAO
@@ -28,13 +29,14 @@ public class UsuariosAPI {
 		usuariosDAO.save(usuarios);
 	}
 
-	@GetMapping("/listar")
-	public List<Usuarios> listar(){
-		return usuariosDAO.findAll();
+	@GetMapping(path="/listar")
+	public @ResponseBody Iterable<Usuarios> 
+	listar(){
+		return (List<Usuarios>) usuariosDAO.findAll();
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
+	public void eliminar(@PathVariable("id") Long id) {
 		usuariosDAO.deleteById(id);
 	}
 

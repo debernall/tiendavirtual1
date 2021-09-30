@@ -21,14 +21,17 @@ import co.edu.unbosque.tiendavirtual1.model.Usuarios;
 public class TestJSONusuarios {
 	
 	private static URL url;
-	private static String sitio = "http://localhost:8080/";
+	private static String sitio = "http://localhost:5000/";
 	
 	public static ArrayList<Usuarios> getJSON() throws IOException, ParseException{
 		url = new URL(sitio+"usuarios/listar");
-		HttpURLConnection http = (HttpURLConnection)url.openConnection();
+		HttpURLConnection http = (HttpURLConnection) url.openConnection();
 		http.setRequestMethod("GET");
 		http.setRequestProperty("Accept", "application/json");
+		http.connect();
+		System.out.println("antes del get input stream");
 		InputStream respuesta = http.getInputStream();
+		System.out.println("despues del get input stream");
 		byte[] inp = respuesta.readAllBytes();
 		String json = "";
 		for (int i = 0; i<inp.length ; i++) {
