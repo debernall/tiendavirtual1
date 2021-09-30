@@ -1,6 +1,7 @@
 package co.edu.unbosque.tiendavirtual1.api;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,5 +43,10 @@ public class UsuariosAPI {
 	@PutMapping("/actualizar")
 	public void actualizar(@RequestBody Usuarios usuarios) {
 		usuariosDAO.save(usuarios);
+	}
+	
+	@PostMapping("/login/{usuario}")
+	public Usuarios login(@PathVariable("usuario") String usuario) {
+		return usuariosDAO.findByUsuario(usuario);
 	}
 }

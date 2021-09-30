@@ -2,6 +2,9 @@ package co.edu.unbosque.tiendavirtual1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,8 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.parser.ParseException;
 import org.springframework.context.annotation.Bean;
 
+import co.edu.unbosque.tiendavirtual1.api.UsuariosAPI;
 import co.edu.unbosque.tiendavirtual1.model.Usuarios;
 
 /**
@@ -39,11 +44,15 @@ public class Servlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String listar = request.getParameter("Listar");
 		String agregar = request.getParameter("Agregar");
+		String ingresar = request.getParameter("Ingresar");
 		if(agregar != null) {
 			agregarUsuario(request, response);
 		}
 		if(listar != null) {
 			listarUsuarios(request, response);
+		}
+		if(ingresar != null) {
+			login(request, response);
 		}
 	}
 
@@ -89,5 +98,25 @@ public class Servlet extends HttpServlet {
 			e.printStackTrace();			
 		}
 	}
-
+	
+	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = request.getParameter("usuario");
+		String password = request.getParameter("password");
+		PrintWriter writer = response.getWriter();
+		String pagina = "/inicio2.jsp";
+		if(user.equals("admininicial") && password.equals("admin123456")) {
+			writer.println("Ha ingresado!"+user+password);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagina);
+			dispatcher.forward(request, response);
+		}else {
+			Usuarios usuarios = new Usuarios();
+			Usuarios usuarios2 = new Usuarios();
+			usuarios.setUsuario(request.getParameter("usuario"));
+			usuarios.setPassword(request.getParameter("password"));
+			UsuariosAPI usuariosAPI = new UsuariosAPI();
+			usuarios2 = usuariosAPI.login(user);
+			writer.println(usuarios2.getCedula_usuario());
+			
+			}
+		}
 }

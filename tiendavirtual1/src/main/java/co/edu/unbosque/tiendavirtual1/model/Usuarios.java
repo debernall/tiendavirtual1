@@ -3,6 +3,7 @@ package co.edu.unbosque.tiendavirtual1.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,9 +12,11 @@ import javax.persistence.Table;
 @Table(name = "usuarios")
 public class Usuarios implements Serializable {
 	@Id
+	@Column(unique = true, nullable = false)
 	private long cedula_usuario;
 	private String nombre_usuario;
 	private String email_usuario;
+	@Column(unique = true, nullable = false)
 	private String usuario;
 	private String password;
 	
